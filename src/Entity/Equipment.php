@@ -38,7 +38,7 @@ class Equipment
     #[ORM\ManyToOne(inversedBy: 'equipment')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Stock $type_id = null;
-
+ 
     /**
      * @var Collection<int, Loan>
      */
@@ -160,7 +160,7 @@ class Equipment
     public function removeLoan(Loan $loan): static
     {
         if ($this->loans->removeElement($loan)) {
-            // set the owning side to null (unless already changed)
+            // set the owning side to null (unless already changed))
             if ($loan->getEquipmentId() === $this) {
                 $loan->setEquipmentId(null);
             }
